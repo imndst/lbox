@@ -1,0 +1,115 @@
+.dropdown-container {
+    position: relative;
+    min-width: 10%;
+    width: 20%;
+    margin: 90px auto;
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+.icon {
+    position: absolute;
+    right: 0px;
+    font-size: 20px;
+    color: #888;
+}
+
+.input-container input {
+    padding-left: 10px;
+    line-height: 2;
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid rgb(0, 132, 255);
+    outline: 2px solid rgba(68, 172, 246, 0.526);
+}
+
+.object-list {
+    position: absolute;
+    left: 10px;
+    top: 2.5rem;
+    width: 100%;
+    background-color: #fff;
+    overflow-y: auto;
+    opacity: 0;
+    transform: scaleY(1);
+    transform-origin: top center;
+    border-radius: 16px;
+    box-shadow: 0 0 5px rgba(153, 154, 156, 0.5);
+    padding: 1rem;
+    box-sizing: border-box;
+
+    &.hidden {
+        opacity: 0;
+        transform: scaleY(0);
+    }
+
+    &.visible {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+.checked {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgba(127, 191, 255, 0.584);
+    border-radius: 4px;
+    color: #007bff;
+}
+
+.object-item {
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 0.625rem;
+    padding: 0.625rem;
+
+    &:hover {
+        background-color: #888;
+    }
+
+    >span {
+        display: block;
+    }
+}
+
+.selected-items-container {
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+    top: 0;
+    right: 0;
+
+    overflow: auto;
+    border: 1px solid #ccc;
+    padding: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    display: flex;
+
+    .selected-item {
+        display: flex;
+        align-items: center;
+        margin: 5px;
+        padding: 5px;
+        border: 1px solid #eee;
+        border-radius: 4px;
+
+        span {
+            margin-right: 8px;
+        }
+
+        button {
+            background-color: #fff;
+            border: none;
+            color: #007bff;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
