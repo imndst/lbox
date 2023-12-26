@@ -84,13 +84,7 @@ const DropDownComponent: React.FC = () => {
   };
 
   const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key === "ArrowDown") {
-      setActiveIndex((prevIndex) =>
-        Math.min(prevIndex + 1, catData.length - 1)
-      );
-    } else if (event.key === "ArrowUp") {
-      setActiveIndex((prevIndex) => Math.max(prevIndex - 1, -1));
-    } else if (event.key === "Enter" && filter.trim() !== "") {
+    if (event.key === "Enter" && filter.trim() !== "") {
       const newItem = {
         id: catData.length + 1,
         name: filter.trim(),
