@@ -9,7 +9,7 @@ const DropDownComponent: React.FC = () => {
     { id: number; name: string; icon: string }[]
   >([]);
   const [filter, setFilter] = useState("");
-  const [myArrayOfObjects, setMyArrayOfObjects] = useState([
+  const [catData, setcatData] = useState([
     { id: 1, name: "Education", icon: "🎓" },
     { id: 2, name: "Science", icon: "🔬" },
     { id: 3, name: "Art", icon: "🎨" },
@@ -27,7 +27,7 @@ const DropDownComponent: React.FC = () => {
     type: string
   ) => {
     event.stopPropagation();
-    type == "icon" ? setListVisible((pre) => !pre) : setListVisible(true);
+    type == "icon" ? setListVisible((pre: boolean) => !pre) : setListVisible(true);
   };
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -86,23 +86,23 @@ const DropDownComponent: React.FC = () => {
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === "ArrowDown") {
       setActiveIndex((prevIndex) =>
-        Math.min(prevIndex + 1, myArrayOfObjects.length - 1)
+        Math.min(prevIndex + 1, catData.length - 1)
       );
     } else if (event.key === "ArrowUp") {
       setActiveIndex((prevIndex) => Math.max(prevIndex - 1, -1));
     } else if (event.key === "Enter" && filter.trim() !== "") {
       const newItem = {
-        id: myArrayOfObjects.length + 1,
+        id: catData.length + 1,
         name: filter.trim(),
         icon: "❓",
       };
 
-      const itemExists = myArrayOfObjects.some(
+      const itemExists = catData.some(
         (existingItem) => existingItem.name === newItem.name
       );
 
       if (!itemExists) {
-        setMyArrayOfObjects((prevItems) => [newItem, ...prevItems]);
+        setcatData((prevItems) => [newItem, ...prevItems]);
         setSelectedItems((prevItems) => [newItem, ...prevItems]);
         setFilter("");
       } else {
@@ -119,7 +119,7 @@ const DropDownComponent: React.FC = () => {
     };
   }, [isListVisible]);
 
-  const filteredList = myArrayOfObjects.filter((item) =>
+  const filteredList = catData.filter((item) =>
     item.name.toLowerCase().includes(filter.toLowerCase())
   );
 
