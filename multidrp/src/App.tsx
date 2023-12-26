@@ -119,6 +119,9 @@ const DropDownComponent: React.FC = () => {
 
   return (
     <div style={{ width: "90%", margin: "0 auto" }}>
+      {/* <p>
+      
+      add new item with type not existingItem and not null an press enter</p> */}
       {selectedItems.length > 0 && (
         <div className="selected-items-container">
           {selectedItems.map((selectedItem) => (
@@ -150,7 +153,7 @@ const DropDownComponent: React.FC = () => {
           </div>
           <input
             type="text"
-            placeholder="Enter text..."
+            placeholder="Enter text and Press Enter to Add new item..."
             value={filter}
             onChange={handleInputChange}
             onClick={(event) => handleInputClick(event, "input")}
