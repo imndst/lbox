@@ -44,18 +44,18 @@ const ObjectList: React.FC<ObjectListProps> = ({
                             role="option"
                             key={obj.id}
                             className={`object-item ${selectedItems.some((item) => item.id === obj.id)
-                                    ? "checked"
-                                    : ""
+                                ? "checked"
+                                : ""
                                 } ${index === activeIndex ? "active" : ""}`}
                             aria-selected={selectedItems.some((item) => item.id === obj.id)}
                             onClick={() => handleItemClick(obj)}
                         >
-                            <span>
+                            <div className="check-icon">
                                 {obj.name} {obj.icon}{" "}
                                 {selectedItems.some((item) => item.id === obj.id) && (
                                     <DropdownTik isListVisible={true} />
                                 )}
-                            </span>
+                            </div>
                         </div>
                     ))}
                 </div>

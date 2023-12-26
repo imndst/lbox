@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, KeyboardEvent } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./appstyle.scss";
 import DropdownArrow from "./components/ImndstDropDownIcon";
 import ObjectList from "./components/ImndstDropDown/ImndstSelectOption";
@@ -27,7 +27,7 @@ const DropDownComponent: React.FC = () => {
     type: string
   ) => {
     event.stopPropagation();
-    type == "icon" ? setListVisible((pre: boolean) => !pre) : setListVisible(true);
+    type === "icon" ? setListVisible((pre: boolean) => !pre) : setListVisible(true);
   };
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -47,9 +47,6 @@ const DropDownComponent: React.FC = () => {
     setFilter(newFilter);
     setActiveIndex(-1);
 
-    if (newFilter.trim() === "") {
-      setFilter(newFilter);
-    }
   };
 
   const handleItemClick = (item: {
@@ -83,7 +80,7 @@ const DropDownComponent: React.FC = () => {
     selectedItems.length > 1 ? setListVisible(true) : setListVisible(false);
   };
 
-  const handleKeyDown = (event: KeyboardEvent) => {
+  const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === "Enter" && filter.trim() !== "") {
       const newItem = {
         id: catData.length + 1,
@@ -119,9 +116,6 @@ const DropDownComponent: React.FC = () => {
 
   return (
     <div style={{ width: "90%", margin: "0 auto" }}>
-      {/* <p>
-      
-      add new item with type not existingItem and not null an press enter</p> */}
       {selectedItems.length > 0 && (
         <div className="selected-items-container">
           {selectedItems.map((selectedItem) => (

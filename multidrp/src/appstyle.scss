@@ -52,13 +52,6 @@
     }
 }
 
-.checked {
-    width: 100%;
-    box-sizing: border-box;
-    background-color: rgba(127, 191, 255, 0.584);
-    border-radius: 4px;
-    color: #007bff;
-}
 
 .object-item {
     cursor: pointer;
@@ -66,15 +59,30 @@
     box-sizing: border-box;
     margin-top: 0.625rem;
     padding: 0.625rem;
+    display: flex;
+    align-items: center;
+    justify-items: end;
+    align-items: end;
 
     &:hover {
         background-color: #888;
     }
 
-    >span {
-        display: block;
-    }
+    >span {}
 }
+
+.checked {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: rgba(127, 191, 255, 0.584);
+    border-radius: 4px;
+    color: #007bff;
+
+}
+
+.check-icon {}
+
+
 
 .selected-items-container {
     border: 1px solid #ccc;
